@@ -1,2 +1,2 @@
 # g-o-skeleton
- project for testing graph origami
+ Project for trying out [Graph Origami](https://graphorigami.org).
