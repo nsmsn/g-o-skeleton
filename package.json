@@ -2,7 +2,8 @@
   "name": "g-o-skeleton",
   "type": "module",
   "dependencies": {
-    "@graphorigami/origami": "github:GraphOrigami/origami#5f2e350d"
+    "@graphorigami/origami": "github:GraphOrigami/origami#5f2e350d",
+    "puppeteer": "20.5.0"
   },
   "scripts": {
     "build": "ori @copy src/site.graph, @files/build",
