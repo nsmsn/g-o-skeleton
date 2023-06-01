@@ -1,0 +1,11 @@
+{
+  "name": "g-o-skeleton",
+  "type": "module",
+  "dependencies": {
+    "@graphorigami/origami": "github:GraphOrigami/origami#5f2e350d"
+  },
+  "scripts": {
+    "build": "ori @copy src/site.graph, @files/build",
+    "start": "ori @serve @watch src, =@debug site.graph"
+  }
+}
