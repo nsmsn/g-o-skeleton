@@ -12,9 +12,8 @@
       "cwd": "${workspaceFolder}",
       "skipFiles": ["<node_internals>/**"],
       "runtimeExecutable": "npm",
-      // If using nvm to install node, specify the node version below, otherwise
-      // can probably comment the line out.
-      "runtimeVersion": "20",
+      // If using nvm, uncomment the line below and specify the node version.
+      // "runtimeVersion": "20",
       "runtimeArgs": ["run-script", "start"]
     }
   ]
