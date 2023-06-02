@@ -1,3 +1,8 @@
-# The following lines include the indicated files/folders in the public site.
 assets
 index.html
+
+# Generate an HTML specimen for each font.
+specimens = @map/values(fontData, specimen.ori, { extension: "md->html" })
+
+# Take a screenshot of each HTML specimen.
+images = @map/values(specimens, screenshot, { extension: "html->png" })
