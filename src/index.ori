@@ -30,13 +30,13 @@
     </a>
 `) }}
 
-<ul>
+    <ul>
 {{ @map/values(groupedByTag, =`
-  <li>
-    <a href="../tags/{{ @key }}.html">{{ @key }}</a>
-  </li>
+      <li>
+        <a href="tags/{{ @key }}.html">{{ @key }}</a>
+      </li>
 `) }}
-</ul>
+    </ul>
 
   </body>
 </html>
