@@ -13,7 +13,7 @@
       "skipFiles": ["<node_internals>/**"],
       "runtimeExecutable": "npm",
       // If using nvm, uncomment the line below and specify the node version.
-      // "runtimeVersion": "20",
+      "runtimeVersion": "20",
       "runtimeArgs": ["run-script", "start"]
     }
   ]

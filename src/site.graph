@@ -1,8 +1,10 @@
 assets
-index.html
+index.html = index.ori()
 
 # Generate an HTML specimen for each font.
 specimens = @map/values(fontData, specimen.ori, { extension: "md->html" })
 
 # Take a screenshot of each HTML specimen.
 images = @map/values(specimens, screenshot, { extension: "html->png" })
+
+fonts = @map/values(fontData, font.ori, { extension: "md->html" })
