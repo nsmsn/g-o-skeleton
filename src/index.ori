@@ -30,5 +30,13 @@
     </a>
 `) }}
 
+<ul>
+{{ @map/values(groupedByTag, =`
+  <li>
+    <a href="../tags/{{ @key }}.html">{{ @key }}</a>
+  </li>
+`) }}
+</ul>
+
   </body>
 </html>

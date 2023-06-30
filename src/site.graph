@@ -8,3 +8,7 @@ specimens = @map/values(fontData, specimen.ori, { extension: "md->html" })
 images = @map/values(specimens, screenshot, { extension: "html->png" })
 
 fonts = @map/values(fontData, font.ori, { extension: "md->html" })
+
+groupedByTag = groupBy(fontData, =tags)
+
+tags = @map/values(groupedByTag, tag.ori, { extension: "->html" })

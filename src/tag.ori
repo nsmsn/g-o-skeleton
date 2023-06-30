@@ -1,0 +1,7 @@
+<h1>{{ @node/path/basename(@key, ".html") }}</h1>
+
+{{ @map/values(@value, =`
+  <a href="../fonts/{{ id }}.html">
+    <img src="../images/{{ id }}.png" alt="{{ name }}">
+  </a>
+`) }}

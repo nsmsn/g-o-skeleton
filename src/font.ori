@@ -2,4 +2,14 @@
 
 <img src="../images/{{ id }}.png" alt="{{ name }}">
 
-{{ @bodyText }}
+<p>
+( body text goes here)
+</p>
+
+<ul>
+{{ @map/values(tags, =`
+  <li>
+    <a href="../tags/{{ @value }}.html">{{ @value }}</a>
+  </li>
+`) }}
+</ul>
