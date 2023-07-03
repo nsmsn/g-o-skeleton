@@ -1,14 +1,25 @@
-assets
-index.html = index.ori()
-
-# Generate an HTML specimen for each font.
+# HTML specimens for each font
 specimens = @map/values(fontData, specimen.ori, { extension: "md->html" })
 
-# Take a screenshot of each HTML specimen.
-images = @map/values(specimens, screenshot, { extension: "html->png" })
-
-fonts = @map/values(fontData, font.ori, { extension: "md->html" })
-
+# Internal graph of fonts grouped by tag
 groupedByTag = groupBy(fontData, =tags)
 
-tags = @map/values(groupedByTag, tag.ori, { extension: "->html" })
+# Graph for the public-facing part of the site.
+# These are the only files that get built and deployed.
+public = {
+
+  assets
+
+  # Pages for each font
+  fonts = @map/values(fontData, font.ori, { extension: "md->html" })
+ 
+  # Screenshots of each HTML specimen
+  images = @map/values(specimens, screenshot, { extension: "html->png" })
+
+  # Home page
+  index.html = index.ori()
+
+  # Pages for each tag
+  tags = @map/values(groupedByTag, tag.ori, { extension: "->html" })
+
+}
