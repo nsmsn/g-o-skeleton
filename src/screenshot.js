@@ -1,4 +1,9 @@
-import puppeteer from "puppeteer";
+// import puppeteer from "puppeteer";
+// Instead of importing puppeteer directly, it seems that for Netlify we need to
+// use Puppeteer via chrome-aws-lambda. See
+// https://levelup.gitconnected.com/using-puppeteer-on-netlify-e2d3801893c2
+import chromium from "chrome-aws-lambda";
+const puppeteer = chromium.puppeteer;
 
 let browserPromise;
 let instanceCount = 0;
