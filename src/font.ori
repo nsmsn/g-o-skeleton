@@ -1,15 +1,24 @@
-<h1>{{ name }}</h1>
+---
+# Use the font name as the page title. The `!ori` tag indicates that the text
+# should be evaluated as an Origami expression.
+title: !ori name
+---
+{{ page.ori(`
 
-<img src="../images/{{ id }}.png" alt="{{ name }}">
+    <h1>{{ name }}</h1>
 
-<p>
-( body text goes here)
-</p>
+    <img src="../images/{{ id }}.png" alt="{{ name }}">
 
-<ul>
-{{ @map/values(tags, =`
-  <li>
-    <a href="../tags/{{ @value }}.html">{{ @value }}</a>
-  </li>
+    <p>
+      {{ @body(@value) }}
+    </p>
+
+    <ul>
+    {{ @map/values(tags, =`
+      <li>
+        <a href="../tags/{{ @value }}.html">{{ @value }}</a>
+      </li>
+    `) }}
+    </ul>
+
 `) }}
-</ul>

@@ -1,7 +1,18 @@
-<h1>{{ @node/path/basename(@key, ".html") }}</h1>
+---
+# Strip the `.html` from the file name to get the tag name.
+tagName: !ori (@node/path/basename(@key, ".html"))
 
-{{ @map/values(@value, =`
-  <a href="../fonts/{{ id }}.html">
-    <img src="../images/{{ id }}.png" alt="{{ name }}">
-  </a>
+# Use the tag name as the page title.
+title: !ori tagName
+---
+{{ page.ori(`
+
+    <h1>{{ tagName }}</h1>
+
+    {{ @map/values(@value, =`
+    <a href="../fonts/{{ id }}.html">
+      <img src="../images/{{ id }}.png" alt="{{ name }}">
+    </a>
+    `) }}
+
 `) }}
