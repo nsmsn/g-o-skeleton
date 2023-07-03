@@ -1,6 +1,12 @@
 # HTML specimens for each font
 specimens = @map/values(fontData, specimen.ori, { extension: "md->html" })
 
+# Images of each font specimen
+specimenImages = @map/values(specimens, screenshot, { extension: "html->png" })
+
+# Cached specimen images so we don't need to constantly run Puppeteer
+images = @cache/graph(specimenImages, @files/cache)
+
 # Internal graph of fonts grouped by tag
 groupedByTag = groupBy(fontData, =tags)
 
@@ -13,8 +19,8 @@ public = {
   # Pages for each font
   fonts = @map/values(fontData, font.ori, { extension: "md->html" })
  
-  # Screenshots of each HTML specimen
-  images = @map/values(specimens, screenshot, { extension: "html->png" })
+  # Images generated and cached above
+  images
 
   # Home page
   index.html = index.ori()
