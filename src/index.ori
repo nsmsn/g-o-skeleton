@@ -5,12 +5,14 @@ title: Typo.town
 
     <h1>{{ title }}</h1>
 
+    <h2>Fonts</h2>
     {{ @map/values(fontData, =`
     <a href="fonts/{{ id }}.html">
       <img src="images/{{ id }}.png" alt="{{ name }}">
     </a>
     `) }}
 
+    <h2>Tags</h2>
     <ul>
       {{ @map/values(groupedByTag, =`
       <li>
