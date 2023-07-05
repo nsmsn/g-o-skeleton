@@ -3,7 +3,7 @@
   "type": "module",
   "dependencies": {
     "@graphorigami/origami": "github:GraphOrigami/origami#15e09a93",
-    "chrome-aws-lambda": "10.1.0",
+    "chrome-aws-lambda": "^9.1.0",
     "puppeteer": "20.7.4"
   },
   "scripts": {

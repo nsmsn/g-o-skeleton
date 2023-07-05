@@ -11,7 +11,7 @@ title: !ori tagName
 
     {{ @map/values(@value, =`
     <a href="../fonts/{{ id }}.html">
-      <img src="../images/{{ id }}.png" alt="{{ name }}">
+      <img src="../images/{{ id }}.png" alt="{{ name }}" width="400" height="100">
     </a>
     `) }}
 
