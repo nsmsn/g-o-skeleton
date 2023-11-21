@@ -2,12 +2,12 @@
   "name": "g-o-skeleton",
   "type": "module",
   "dependencies": {
-    "@graphorigami/origami": "github:GraphOrigami/origami#15e09a93",
+    "@graphorigami/origami": "https://gitpkg.now.sh/GraphOrigami/origami/origami?552e6ba7",
     "chrome-aws-lambda": "^9.1.0",
     "puppeteer": "20.7.4"
   },
   "scripts": {
-    "build": "ori @copy src/site.graph/public, @files/build",
-    "start": "ori @serve @watch src, =@debug site.graph/public"
+    "build": "ori @copy src/site.ori/public, @files/build",
+    "start": "ori @serve @watch src, =@debug site.ori/public"
   }
 }

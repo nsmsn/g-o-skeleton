@@ -8,7 +8,9 @@ const puppeteer = chromium.puppeteer;
 let browserPromise;
 let instanceCount = 0;
 
-export default async function screenshot(html, options = {}) {
+export default async function screenshot(input, options = {}) {
+  const html = String(input);
+
   // Try to share browser instances across multiple calls.
   instanceCount++;
   if (!browserPromise) {

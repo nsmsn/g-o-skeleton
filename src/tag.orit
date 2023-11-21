@@ -1,0 +1,15 @@
+{{ page.orit(@document(
+  `
+    <a href="..">Typo.town</a>
+    
+    <h1>{{ _/tag }}</h1>
+
+    {{ @tree/map(_/fonts, =`
+    <a href="../fonts/{{ _/id }}.html">
+      <img src="../images/{{ _/id }}.png" alt="{{ _/name }}" width="400" height="100">
+    </a>
+    `) }}
+
+  `
+  { title: _/tag }
+)) }}
