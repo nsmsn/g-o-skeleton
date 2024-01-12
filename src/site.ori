@@ -1,44 +1,40 @@
 {
-  # HTML specimens for each font
-  specimens = @tree/map(fontData, {
-    extensions: "md->html"
-    valueMap: specimen.orit
-  })
+  # The public-facing part of the site.
+  # These are the only files that get built and deployed.
+  public = {
+    assets
 
-  # Images of each font specimen
-  specimenImages = @tree/map(specimens, {
-    extensions: "html->png"
-    valueMap: screenshot.js
-  })
+    # Pages for each font
+    fonts = @map(fontData, {
+      extensions: "md->html"
+      valueMap: font.ori
+    })
 
-  # Cached specimen images so we don't need to constantly run Puppeteer
-  images = @cache(specimenImages, @files/cache)
+    # Cached specimen images so we don't need to constantly run Puppeteer
+    images = @cache(specimenImages, @files/cache)
+
+    # Home page
+    index.html = index.ori({ fontData, groupedByTag })
+
+    # Pages for each tag
+    tags = @map(groupedByTag, {
+      extensions: "->html"
+      valueMap: =tag.ori({ fonts: _, tag: @key })
+    })
+  }
 
   # Internal graph of fonts grouped by tag
   groupedByTag = @tree/groupBy(fontData, =_/tags)
 
-  # Graph for the public-facing part of the site.
-  # These are the only files that get built and deployed.
-  public = {
+  # HTML specimens for each font
+  specimens = @map(fontData, {
+    extensions: "md->html"
+    valueMap: specimen.ori
+  })
 
-    assets
-
-    # Pages for each font
-    fonts = @tree/map(fontData, {
-      extensions: "md->html"
-      valueMap: font.orit
-    })
-  
-    # Images generated and cached above
-    images
-
-    # Home page
-    index.html = index.orit({ fontData, groupedByTag })
-
-    # Pages for each tag
-    tags = @tree/map(groupedByTag, {
-      extensions: "->html"
-      valueMap: =tag.orit({ fonts: _, tag: @key })
-    })
-  }
+  # Images of each font specimen
+  specimenImages = @map(specimens, {
+    extensions: "html->png"
+    valueMap: screenshot.js
+  })
 }

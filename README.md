@@ -1,6 +1,4 @@
-# g-o-skeleton
-
-Project for trying out [Graph Origami](https://graphorigami.org).
+Project for trying out [Web Origami](https://weborigami.org).
 
 Install dependencies via `npm install`.
 

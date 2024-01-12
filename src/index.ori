@@ -1,9 +1,11 @@
-{{ page.orit(@document(
-  `
+# Home page template
+=page.ori({
+  title: "Typo.town"
+  @text: `
     <h1>Typo.town</h1>
 
     <h2>Fonts</h2>
-    {{ @tree/map(_/fontData, =`
+    {{ @map(_/fontData, =`
     <a href="fonts/{{ _/id }}.html" style="text-decoration: none;">
       <img src="images/{{ _/id }}.png" alt="{{ _/name }}" width="400" height="100">
     </a>
@@ -11,12 +13,11 @@
 
     <h2>Tags</h2>
     <ul>
-      {{ @tree/map(_/groupedByTag, =`
+      {{ @map(_/groupedByTag, =`
       <li>
         <a href="tags/{{ @key }}.html">{{ @key }}</a>
       </li>
       `) }}
     </ul>
   `
-  { title: "Typo.town" }
-)) }}
+})
