@@ -5,6 +5,8 @@
 import chromium from "chrome-aws-lambda";
 const puppeteer = chromium.puppeteer;
 
+import { replaceExtension } from "@weborigami/origami";
+
 let browserPromise;
 let instanceCount = 0;
 
@@ -62,3 +64,7 @@ export default async function screenshot(input, options = {}) {
 
   return buffer;
 }
+
+screenshot.keyMap = (sourceKey) => replaceExtension(sourceKey, ".html", ".png");
+screenshot.inverseKeyMap = (resultKey) =>
+  replaceExtension(resultKey, ".png", ".html");
