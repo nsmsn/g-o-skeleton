@@ -35,6 +35,8 @@
   # Images of each font specimen
   specimenImages = @map(specimens, {
     extensions: "html->png"
-    valueMap: screenshot.js
+    valueMap: =package:@weborigami/screenshot(_, {
+      deviceScaleFactor: 2 # Retina images
+    })
   })
 }

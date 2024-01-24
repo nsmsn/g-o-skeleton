@@ -5,10 +5,13 @@
       @import url("{{ _/url }}");
 
       body {
+        box-sizing: border-box;
         font-family: "{{ _/name }}";
-        font-size: 16px;
-        height: 100px;
-        width: 400px;
+        font-size: 32px;
+        height: 200px;
+        margin: 0;
+        padding: 8px;
+        width: 600px;
       }
     </style>
     <h1>{{ _/name }}</h1>

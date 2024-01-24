@@ -2,9 +2,8 @@
   "name": "g-o-skeleton",
   "type": "module",
   "dependencies": {
-    "@weborigami/origami": "https://gitpkg.now.sh/WebOrigami/origami/origami?723c7206",
-    "chrome-aws-lambda": "10.1.0",
-    "puppeteer": "21.7.0"
+    "@weborigami/origami": "https://gitpkg.now.sh/WebOrigami/origami/origami?cbf23d06",
+    "@weborigami/screenshot": "0.0.1"
   },
   "scripts": {
     "build": "ori @copy src/site.ori/public, @files/build",

@@ -7,7 +7,7 @@
     <h2>Fonts</h2>
     {{ @map(_/fontData, =`
     <a href="fonts/{{ _/id }}.html" style="text-decoration: none;">
-      <img src="images/{{ _/id }}.png" alt="{{ _/name }}" width="400" height="100">
+      <img src="images/{{ _/id }}.png" alt="{{ _/name }}" width="300" height="100">
     </a>
     `) }}
 

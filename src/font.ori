@@ -3,8 +3,9 @@
   title: _/name
   @text: `
     <a href="..">Typo.town</a>
-    <h1>{{ _/name }}</h1>
-    <img src="../images/{{ _/id }}.png" alt="{{ _/name }}">
+    <p>
+      <img src="../images/{{ _/id }}.png" alt="{{ _/name }}" height="200" width="600">
+    </p>
     <p>
       {{ _/@text }}
     </p>
