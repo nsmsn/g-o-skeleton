@@ -6,7 +6,7 @@
     <h1>{{ _/tag }}</h1>
     {{ @map(_/fonts, =`
     <a href="../fonts/{{ _/id }}.html">
-      <img src="../images/{{ _/id }}.png" alt="{{ _/name }}" width="400" height="100">
+      <img src="../images/{{ _/id }}.png" alt="{{ _/name }}" width="300" height="100">
     </a>
     `) }}
   `
