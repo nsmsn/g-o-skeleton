@@ -1,20 +1,20 @@
-# Template for a single font
-=page.ori({
-  title: _/name
+// Template for a single font
+(font) => page.ori({
+  title: font/name
   @text: `
     <a href="..">Typo.town</a>
     <p>
-      <img src="../images/{{ _/id }}.png" alt="{{ _/name }}" height="200" width="600">
+      <img src="../images/${ font/id }.png" alt="${ font/name }" height="200" width="600">
     </p>
     <p>
-      {{ _/@text }}
+      ${ font/@text }
     </p>
     <ul>
-    {{ @map(_/tags, =`
+    ${ @map(font/tags, (tag) => `
       <li>
-        <a href="../tags/{{ _ }}.html">{{ _ }}</a>
+        <a href="../tags/${ tag }.html">${ tag }</a>
       </li>
-    `) }}
+    `) }
     </ul>
   `
 })

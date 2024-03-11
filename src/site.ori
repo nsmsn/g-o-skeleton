@@ -1,42 +1,42 @@
 {
-  # The public-facing part of the site.
-  # These are the only files that get built and deployed.
+  // The public-facing part of the site.
+  // These are the only files that get built and deployed.
   public = {
     assets
 
-    # Pages for each font
+    // Pages for each font
     fonts = @map(fontData, {
       extensions: "md->html"
       valueMap: font.ori
     })
 
-    # Cached specimen images so we don't need to constantly run Puppeteer
+    // Cached specimen images so we don't need to constantly run Puppeteer
     images = @cache(specimenImages, @files/cache)
 
-    # Home page
-    index.html = index.ori({ fontData, groupedByTag })
+    // Home page
+    index.html = index.ori(fontData, fontsByTag)
 
-    # Pages for each tag
-    tags = @map(groupedByTag, {
+    // Pages for each tag
+    tags = @map(fontsByTag, {
       extensions: "->html"
       valueMap: =tag.ori({ fonts: _, tag: @key })
     })
   }
 
-  # Internal graph of fonts grouped by tag
-  groupedByTag = @tree/groupBy(fontData, =_/tags)
+  // Internal graph of fonts grouped by tag
+  fontsByTag = @groupBy(fontData, =_/tags)
 
-  # HTML specimens for each font
+  // HTML specimens for each font
   specimens = @map(fontData, {
     extensions: "md->html"
     valueMap: specimen.ori
   })
 
-  # Images of each font specimen
+  // Images of each font specimen
   specimenImages = @map(specimens, {
     extensions: "html->png"
     valueMap: =package:@weborigami/screenshot/html(_, {
-      deviceScaleFactor: 2 # Retina images
+      deviceScaleFactor: 2 // Retina images
     })
   })
 }

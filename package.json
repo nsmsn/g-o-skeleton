@@ -2,8 +2,8 @@
   "name": "g-o-skeleton",
   "type": "module",
   "dependencies": {
-    "@weborigami/origami": "https://gitpkg.now.sh/WebOrigami/origami/origami?59500632",
-    "@weborigami/screenshot": "0.0.2"
+    "@weborigami/origami": "0.0.45",
+    "@weborigami/screenshot": "0.0.3"
   },
   "scripts": {
     "build": "ori @copy src/site.ori/public, @files/build",

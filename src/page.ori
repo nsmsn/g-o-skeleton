@@ -1,17 +1,17 @@
-# Base template used by all pages
-=`<!DOCTYPE html>
+// Base template used by all pages
+(page) => `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A test project, and not much else">
     <meta name="robots" content="index, follow">
-    <title>{{ _/title }}</title>
+    <title>${ page/title }</title>
     <link rel="stylesheet" href="/assets/styles.css">
     <link rel="icon" type="image/png" href="/assets/icon.png">
   </head>
   <body>
-{{ _/@text }}
+${ page/@text }
   </body>
 </html>
 `

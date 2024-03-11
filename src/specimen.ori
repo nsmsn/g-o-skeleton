@@ -1,12 +1,12 @@
-# We'll use Puppeteer to capture an image of this as a font specimen.
-=`<html>
+// We'll use Puppeteer to capture an image of this as a font specimen.
+(font) => `<html>
   <body>
     <style>
-      @import url("{{ _/url }}");
+      @import url("${ font/url }");
 
       body {
         box-sizing: border-box;
-        font-family: "{{ _/name }}";
+        font-family: "${ font/name }";
         font-size: 32px;
         height: 200px;
         margin: 0;
@@ -14,7 +14,7 @@
         width: 600px;
       }
     </style>
-    <h1>{{ _/name }}</h1>
+    <h1>${ font/name }</h1>
     <p>Lorem ipsum dolor sit amet.</p>
   </body>
 </html>

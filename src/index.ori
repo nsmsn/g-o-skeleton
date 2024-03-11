@@ -1,23 +1,23 @@
-# Home page template
-=page.ori({
+// Home page template
+(fontData, fontsByTag ) => page.ori({
   title: "Typo.town"
   @text: `
     <h1>Typo.town</h1>
 
     <h2>Fonts</h2>
-    {{ @map(_/fontData, =`
-    <a href="fonts/{{ _/id }}.html" style="text-decoration: none;">
-      <img src="images/{{ _/id }}.png" alt="{{ _/name }}" width="300" height="100">
+    ${ @map(fontData, (font) => `
+    <a href="fonts/${ font/id }.html" style="text-decoration: none;">
+      <img src="images/${ font/id }.png" alt="${ font/name }" width="300" height="100">
     </a>
-    `) }}
+    `) }
 
     <h2>Tags</h2>
     <ul>
-      {{ @map(_/groupedByTag, =`
+      ${ @map(fontsByTag, (font, tag) => `
       <li>
-        <a href="tags/{{ @key }}.html">{{ @key }}</a>
+        <a href="tags/${ tag }.html">${ tag }</a>
       </li>
-      `) }}
+      `) }
     </ul>
   `
 })
