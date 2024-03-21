@@ -4,7 +4,7 @@
   @text: `
     <a href="..">Typo.town</a>
     <p>
-      <img src="../images/${ font/id }.png" alt="${ font/name }" height="200" width="600">
+      <img src="../images/${ font/id }.png" alt="${ font/name } font sample" height="200" width="600">
     </p>
     <p>
       ${ font/@text }

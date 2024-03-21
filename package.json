@@ -2,11 +2,11 @@
   "name": "g-o-skeleton",
   "type": "module",
   "dependencies": {
-    "@weborigami/origami": "0.0.45",
+    "@weborigami/origami": "0.0.46",
     "@weborigami/screenshot": "0.0.3"
   },
   "scripts": {
-    "build": "ori @copy src/site.ori/public, @files/build",
+    "build": "ori @copy src/site.ori/public, @mkdir/build",
     "start": "ori @serve @watch src, =@debug site.ori/public"
   }
 }

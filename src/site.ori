@@ -5,37 +5,28 @@
     assets
 
     // Pages for each font
-    fonts = @map(fontData, {
-      extensions: "md->html"
-      valueMap: font.ori
-    })
+    fonts = @map(fontBook, { extension: "md→html", value: font.ori })
 
-    // Cached specimen images so we don't need to constantly run Puppeteer
-    images = @cache(specimenImages, @files/cache)
+    // Cached screenshots so we don't need to constantly run Puppeteer
+    images = @cache(screenshots, @mkdir/cache)
 
     // Home page
-    index.html = index.ori(fontData, fontsByTag)
+    index.html = index.ori(fontBook, fontsByTag)
 
     // Pages for each tag
-    tags = @map(fontsByTag, {
-      extensions: "->html"
-      valueMap: =tag.ori({ fonts: _, tag: @key })
-    })
+    tags = @map(fontsByTag, { extension: "→html", value: tag.ori })
   }
 
-  // Internal graph of fonts grouped by tag
-  fontsByTag = @groupBy(fontData, =_/tags)
+  // Internal grouping of fonts by tag
+  fontsByTag = @groupBy(fontBook, (font) => font/tags)
 
   // HTML specimens for each font
-  specimens = @map(fontData, {
-    extensions: "md->html"
-    valueMap: specimen.ori
-  })
+  specimens = @map(fontBook, { extension: "md→html", value: specimen.ori })
 
-  // Images of each font specimen
-  specimenImages = @map(specimens, {
-    extensions: "html->png"
-    valueMap: =package:@weborigami/screenshot/html(_, {
+  // Screenshots of each font specimen
+  screenshots = @map(specimens, {
+    extension: "html→png"
+    value: (specimen) => package:@weborigami/screenshot/html(specimen, {
       deviceScaleFactor: 2 // Retina images
     })
   })
