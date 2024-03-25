@@ -3,7 +3,7 @@
   "type": "module",
   "dependencies": {
     "@weborigami/origami": "0.0.46",
-    "@weborigami/screenshot": "0.0.4"
+    "@weborigami/screenshot": "https://gitpkg.now.sh/WebOrigami/extensions/screenshot?7ff5c2b0"
   },
   "scripts": {
     "build": "ori @copy src/site.ori/public, @mkdir/build",
