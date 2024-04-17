@@ -6,7 +6,7 @@
     assets
 
     // Pages for each font
-    fonts = @map(fontBook, { extension: "md→html", value: font.ori })
+    fonts = fontbook → @map(@mdHtml) → @map(font.ori)
 
     // Home page
     index.html = index.ori(fontBook, fontsByTag)
