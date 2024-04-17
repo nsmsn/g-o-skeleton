@@ -1,0 +1,13 @@
+// Start with each font description we have.
+fontBook
+
+// For each font, generate an HTML specimen using a template.
+→ @map({ extension: "md→html", value: specimen.ori })
+
+// Take a screenshot of that specimen.
+→ @map({
+  extension: "html→png"
+  value: (specimen) => screenshot(specimen, {
+    deviceScaleFactor: 2 // Retina images
+  })
+})

@@ -7,7 +7,7 @@
     <h2>Fonts</h2>
     ${ @map(fontBook, (font) => `
     <a href="fonts/${ font/id }.html" style="text-decoration: none;">
-      <img src="images/${ font/id }.png" alt="${ font/name } font sample" width="300" height="100">
+      <img src="assets/samples/${ font/id }.png" alt="${ font/name } font sample" width="300" height="100">
     </a>
     `) }
 

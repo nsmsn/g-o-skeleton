@@ -7,9 +7,6 @@
     // Pages for each font
     fonts = @map(fontBook, { extension: "md→html", value: font.ori })
 
-    // Cached screenshots so we don't need to constantly run Puppeteer
-    images = @cache(screenshots, @mkdir/cache)
-
     // Home page
     index.html = index.ori(fontBook, fontsByTag)
 
@@ -19,15 +16,4 @@
 
   // Internal grouping of fonts by tag
   fontsByTag = @groupBy(fontBook, (font) => font/tags)
-
-  // HTML specimens for each font
-  specimens = @map(fontBook, { extension: "md→html", value: specimen.ori })
-
-  // Screenshots of each font specimen
-  screenshots = @map(specimens, {
-    extension: "html→png"
-    value: (specimen) => package:@weborigami/screenshot/html(specimen, {
-      deviceScaleFactor: 2 // Retina images
-    })
-  })
 }
