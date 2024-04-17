@@ -1,3 +1,4 @@
+// Overall site definition
 {
   // The public-facing part of the site.
   // These are the only files that get built and deployed.

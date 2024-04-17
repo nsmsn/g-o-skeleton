@@ -8,8 +8,8 @@
     "@weborigami/screenshot": "0.0.6"
   },
   "scripts": {
-    "build": "ori @copy src/site.ori/public, @mkdir/build",
-    "samples": "ori @copy src/samples.ori, @mkdir/src/assets/samples",
+    "build": "rm -rf build; ori @copy src/site.ori/public, @mkdir/build",
+    "samples": "rm -rf samples; ori @copy src/samples.ori, @mkdir:src/assets/samples",
     "start": "ori @serve @watch src, =@debug site.ori/public"
   }
 }

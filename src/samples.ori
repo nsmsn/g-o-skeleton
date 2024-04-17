@@ -1,13 +1,15 @@
+// Generates a whole set of font samples
+
 // Start with each font description we have.
 fontBook
 
-// For each font, generate an HTML specimen using a template.
-→ @map({ extension: "md→html", value: specimen.ori })
+// For each font, generate an HTML sample using a template.
+→ @map({ extension: "md→html", value: sample.ori })
 
-// Take a screenshot of that specimen.
+// Take a screenshot of that sample.
 → @map({
   extension: "html→png"
-  value: (specimen) => screenshot(specimen, {
+  value: (sample) => screenshot(sample, {
     deviceScaleFactor: 2 // Retina images
   })
 })
