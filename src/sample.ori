@@ -1,4 +1,4 @@
-// We'll use Puppeteer to capture an image of this as a font specimen.
+// HTML template used to render a single font sample
 (font) => `<html>
   <body>
     <style>
