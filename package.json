@@ -1,12 +1,15 @@
 {
-  "name": "g-o-skeleton",
+  "name": "typotown",
   "type": "module",
   "dependencies": {
-    "@weborigami/origami": "0.0.46",
-    "@weborigami/screenshot": "0.0.3"
+    "@weborigami/origami": "0.0.49"
+  },
+  "devDependencies": {
+    "@weborigami/screenshot": "0.0.6"
   },
   "scripts": {
-    "build": "ori @copy src/site.ori/public, @mkdir/build",
+    "build": "rm -rf build; ori @copy src/site.ori/public, @mkdir/build",
+    "samples": "rm -rf samples; ori @copy src/samples.ori, @mkdir:src/assets/samples",
     "start": "ori @serve @watch src, =@debug site.ori/public"
   }
 }

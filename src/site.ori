@@ -1,3 +1,4 @@
+// Overall site definition
 {
   // The public-facing part of the site.
   // These are the only files that get built and deployed.
@@ -5,29 +6,18 @@
     assets
 
     // Pages for each font
-    fonts = @map(fontBook, { extension: "md→html", value: font.ori })
-
-    // Cached screenshots so we don't need to constantly run Puppeteer
-    images = @cache(screenshots, @mkdir/cache)
+    fonts = content/fonts → @map(@mdHtml) → @map(font.ori)
 
     // Home page
-    index.html = index.ori(fontBook, fontsByTag)
+    index.html = index.ori(content/fonts, fontsByTag, content/index.md)
 
-    // Pages for each tag
-    tags = @map(fontsByTag, { extension: "→html", value: tag.ori })
+    // Pages for each tag are given the tag's name, font list, and markdown.
+    tags = @map(fontsByTag, {
+      extension: "→html"
+      value: (fonts, tag) => tag.ori(tag, fonts, content/tags(`${tag}.md`))
+    })
   }
 
   // Internal grouping of fonts by tag
-  fontsByTag = @groupBy(fontBook, (font) => font/tags)
-
-  // HTML specimens for each font
-  specimens = @map(fontBook, { extension: "md→html", value: specimen.ori })
-
-  // Screenshots of each font specimen
-  screenshots = @map(specimens, {
-    extension: "html→png"
-    value: (specimen) => package:@weborigami/screenshot/html(specimen, {
-      deviceScaleFactor: 2 // Retina images
-    })
-  })
+  fontsByTag = @groupBy(content/fonts, (font) => font/tags)
 }

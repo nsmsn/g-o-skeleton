@@ -1,0 +1,3 @@
+{
+  screenshot = package:@weborigami/screenshot/html
+}

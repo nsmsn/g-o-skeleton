@@ -1,13 +1,16 @@
 // Template for a tag page, shows all the fonts using that tag.
-(fonts, tag) => page.ori({
+(tag, fonts, markdown) => page.ori({
   title: tag
   @text: `
     <a href="..">Typo.town</a>
     <h1>${ tag }</h1>
     ${ @map(fonts, (font) => `
     <a href="../fonts/${ font/id }.html">
-      <img src="../images/${ font/id }.png" alt="${ font/name } font sample" width="300" height="100">
+      <img src="../assets/samples/${ font/id }.png" alt="${ font/name } font sample" width="300" height="100">
     </a>
     `) }
+    <section>
+      ${ @if(markdown, =@mdHtml(markdown)) }
+    </section>
   `
 })

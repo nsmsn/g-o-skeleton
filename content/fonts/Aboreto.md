@@ -12,4 +12,4 @@ tags:
   - Vertical Stress
 ---
 
-This is an awesome font.
+This is an **awesome** font.
