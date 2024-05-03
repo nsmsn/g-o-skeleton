@@ -1,23 +1,31 @@
 // Home page template
-(fontBook, fontsByTag ) => page.ori({
+(fontBook, fontsByTag, markdown) => page.ori({
   title: "Typo.town"
   @text: `
     <h1>Typo.town</h1>
 
-    <h2>Fonts</h2>
-    ${ @map(fontBook, (font) => `
-    <a href="fonts/${ font/id }.html" style="text-decoration: none;">
-      <img src="assets/samples/${ font/id }.png" alt="${ font/name } font sample" width="300" height="100">
-    </a>
-    `) }
+    <section>
+      ${ @mdHtml(markdown) }
+    </sction>
 
-    <h2>Tags</h2>
-    <ul>
-      ${ @map(fontsByTag, (font, tag) => `
-      <li>
-        <a href="tags/${ tag }.html">${ tag }</a>
-      </li>
+    <section>
+      <h2>Fonts</h2>
+      ${ @map(fontBook, (font) => `
+      <a href="fonts/${ font/id }.html" style="text-decoration: none;">
+        <img src="assets/samples/${ font/id }.png" alt="${ font/name } font sample" width="300" height="100">
+      </a>
       `) }
-    </ul>
+    </section>
+
+    <section>
+      <h2>Tags</h2>
+      <ul>
+        ${ @map(fontsByTag, (font, tag) => `
+        <li>
+          <a href="tags/${ tag }.html">${ tag }</a>
+        </li>
+        `) }
+      </ul>
+    </section>
   `
 })
